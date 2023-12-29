@@ -20,21 +20,28 @@ def is_sorted(l:list) -> bool:
 exo 3.3
 """
 
-def minimum(l:list, d: int, f: int) -> int:
+def minimum(l: list, d:int, f:int) -> int:
     i_min = d
-
-    while d < f:
-        if l[i_min] > l[d+1]:
-            i_min = d+1
-        d+=1
-
+    for i in range(d, f+1):
+        if l[i_min] > l[i]:
+            i_min = i
     return i_min
 
-print(minimum([4, -5, 3, -3, 8, -2, 0, 3, -6, 7], 2, 7))
 
-def selection_sort(l: list) -> list:
+def select_sort(l: list) -> list:
+    
     for i in range(len(l)):
-        l[i] = l[minimum(l, i, len(l)-1)]
+        i_min = minimum(l, i, len(l)-1)
+        l[i], l[i_min] = l[i_min], l[i]
     return l
 
-print(selection_sort([4 , -5 , 3 , -3 , 8 , 2 , 0 , 3 , -6 , 7]))
+
+
+print(minimum([-3,-2,-1,0,1,2,3], 0, 6))
+print(select_sort([-3,-2,-1,0,1,2,3]))
+
+
+
+"""
+exo 3.4
+"""
