@@ -12,7 +12,7 @@ def afficher_arbre(abr: Noeud) -> str:
 
 
 
-
+# welcome to my palace
 
 n4 = Noeud(9)
 n5 = Noeud(6)
