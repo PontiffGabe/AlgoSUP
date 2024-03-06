@@ -1,4 +1,8 @@
 from ArbreBinaire import Noeud
+from collections import deque
+
+
+
 """
 Exo 2.1 DFS : Parcours profondeur (Depth-First Search)
 """
@@ -11,8 +15,33 @@ def afficher_arbre(abr: Noeud) -> str:
 
 
 
+"""
+Exo 2.2 BFS : Parcours largeur (Breadth-First Search)
+"""
+"""
+def afficher_largeur_arbre(abr: Noeud) -> str:
+    if abr == None:
+        return ""
+    else:
+        res = ""
 
-# welcome to my palace
+        file = [abr]
+
+        while len(file) > 0:
+            res += str(abr.valeur) + ", "
+            
+            tmp = file.pop()
+            
+            if tmp.sag != None:
+                file.append(tmp.sag.valeur)
+            if tmp.sad != None:
+                file.append(tmp.sad.valeur)
+
+
+        return res
+"""
+
+
 
 n4 = Noeud(9)
 n5 = Noeud(6)
@@ -24,3 +53,4 @@ n2 = Noeud(4, n4, n5)
 abr = Noeud(1, n2, n3)
 
 print(afficher_arbre(abr))
+print(afficher_largeur_arbre(abr))
