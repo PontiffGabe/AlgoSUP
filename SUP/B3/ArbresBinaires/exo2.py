@@ -18,28 +18,28 @@ def afficher_arbre(abr: Noeud) -> str:
 """
 Exo 2.2 BFS : Parcours largeur (Breadth-First Search)
 """
-"""
+
 def afficher_largeur_arbre(abr: Noeud) -> str:
     if abr == None:
         return ""
     else:
         res = ""
 
-        file = [abr]
+        file = deque([abr])
 
         while len(file) > 0:
-            res += str(abr.valeur) + ", "
+            tmp = file.popleft()
             
-            tmp = file.pop()
+            res += str(tmp.valeur)
             
             if tmp.sag != None:
-                file.append(tmp.sag.valeur)
+                file.append(tmp.sag)
             if tmp.sad != None:
-                file.append(tmp.sad.valeur)
-
+                file.append(tmp.sad)
+            
 
         return res
-"""
+
 
 
 
